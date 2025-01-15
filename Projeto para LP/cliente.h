@@ -1,9 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_CONSULTAS 100
+#define MAX_CLIENTES 100
 
 typedef enum {
     REGULAR,
@@ -12,17 +11,21 @@ typedef enum {
 } TipoCliente;
 
 typedef struct {
-    int numeroCliente;
-    char nomeCliente[50];
-    char NIF[9];
-    float valor;
-    TipoCliente tipo;
-    char dataRegisto[11];
+    int numerocliente; 
+    char nomecliente[50]; 
+    char nif[10]; 
+    float valor; 
+    TipoCliente tipo; 
+    char dataregisto[11]; 
 } TCAutomovel;
 
-// Coisas dos clientes
+
 void InsereCliente(TCAutomovel cliente[], int* contador);
 void GravarClientes(TCAutomovel clientes[], int contador, const char* nomeFicheiro);
 int LerClientes(TCAutomovel cliente[], const char* nomeFicheiro);
 void ListarClientes(TCAutomovel consultas[], int contador);
 void OrdenarClientesNome(TCAutomovel consultas[], int contador);
+int LerClientes(const char* nome_ficheiro, TCAutomovel** vetor);
+void OrdenarClientes(TCAutomovel clientes[], int contador, int ordem);
+void RemoverClientePorNumero(TCAutomovel clientes[], int* contador, int numerocliente);
+
